@@ -349,10 +349,11 @@ CONVERSATION HISTORY:
      * If 'family' or 'kids': Set 'restrictions' to 'Family-friendly with easy access.'
      * ONLY if 'baby' is explicitly mentioned, include: 'Stroller accessible with changing stations.'
    - **PURE VEG**: The food preference is {food_pref}. You MUST suggest dishes according to this preference.
-7. OUTPUT: Return ONLY a valid JSON object.
+7. OUTPUT: Return ONLY a valid JSON object. No conversational text.
+8. SPEED OPTIMIZATION: Keep descriptions under 15 words.
 
-### REQUIRED JSON SCHEMA:
-- **restrictions**: MUST be a simple STRING (max 15 words). DO NOT output an object or list. Example: "Romantic and scenic atmosphere."
+### ITINERARY JSON SCHEMA:
+- **restrictions**: STRING (max 10 words). Example: "Couple's vibe, no kids."
 - **meals**: All restaurants and dishes must be {food_pref}. If {food_pref} is 'local cuisine', provide a mix of options.
 - **hotel**: Belong in the 'hotel' field only. NEVER in activities.
 {{
@@ -839,7 +840,7 @@ Reply immediately with the answer:
         )
 
         try:
-            with request.urlopen(req, timeout=60) as resp:
+            with request.urlopen(req, timeout=120) as resp:
                 parsed = json.loads(resp.read().decode("utf-8"))
             content = (
                 (parsed.get("choices") or [{}])[0]
@@ -878,7 +879,7 @@ Reply immediately with the answer:
             method="POST",
         )
         try:
-            with request.urlopen(req, timeout=60) as resp:
+            with request.urlopen(req, timeout=120) as resp:
                 parsed = json.loads(resp.read().decode("utf-8"))
             content = (
                 (parsed.get("choices") or [{}])[0]
@@ -913,7 +914,7 @@ Reply immediately with the answer:
             method="POST",
         )
         try:
-            with request.urlopen(req, timeout=60) as resp:
+            with request.urlopen(req, timeout=120) as resp:
                 parsed = json.loads(resp.read().decode("utf-8"))
             parts = parsed.get("content") or []
             content = "".join(
@@ -948,7 +949,7 @@ Reply immediately with the answer:
             method="POST",
         )
         try:
-            with request.urlopen(req, timeout=60) as resp:
+            with request.urlopen(req, timeout=120) as resp:
                 parsed = json.loads(resp.read().decode("utf-8"))
             candidates = parsed.get("candidates") or []
             content = ""
