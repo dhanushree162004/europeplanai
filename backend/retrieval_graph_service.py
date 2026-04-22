@@ -353,20 +353,20 @@ CONVERSATION HISTORY:
 8. SPEED OPTIMIZATION: Keep descriptions under 15 words.
 
 ### REQUIRED JSON STRUCTURE:
-{
+{{
   "itinerary": [
-    {
+    {{
       "day": 1,
       "city": "Paris",
       "activities": "Morning: Eiffel Tower. Afternoon: Louvre. Evening: Seine Cruise.",
       "restrictions": "Romantic vibe.",
-      "meals": {"lunch": "Le Bistro", "dinner": "Brasserie"},
-      "hotel": {"name": "Hotel de Paris", "reason": "Central and historic"}
-    }
+      "meals": {{"lunch": "Le Bistro", "dinner": "Brasserie"}},
+      "hotel": {{"name": "Hotel de Paris", "reason": "Central and historic"}}
+    }}
   ],
-  "budget_breakdown": {"total": 5000, "attractions": 500, "stays": 2500, "transport": 1000, "food": 1000},
+  "budget_breakdown": {{"total": {budget_val}, "attractions": 500, "stays": 2500, "transport": 1000, "food": 1000}},
   "justification": "Exactly 3 sentences explaining why this specific route fits the traveler type and budget."
-}
+}}
 """
         plan_raw, error = self._call_llm(prompt)
         
