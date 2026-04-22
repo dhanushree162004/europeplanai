@@ -11,6 +11,8 @@ license: mit
 
 # 🌍 EuroPlan AI: Multi-Agent Travel Planner
 
+### 🚀 [Live Demo on Hugging Face Spaces](https://huggingface.co/spaces/dhanushree16/europe-planner)
+
 **EuroPlan AI** is a professional-grade, multi-agent travel reasoning system designed to eliminate AI "hallucinations" and provide geographically accurate, personalized European itineraries.
 
 ---
