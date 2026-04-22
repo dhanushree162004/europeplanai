@@ -473,32 +473,45 @@
                     dayDiv.style = "margin-bottom: 2.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 1.5rem;";
 
                     let activityHtml = '';
-                    (day.activities || []).forEach((act) => {
-                        const icon = act.time === 'Morning' ? 'sun' : (act.time === 'Afternoon' ? 'cloud-sun' : 'moon');
-                        activityHtml += `
-                            <div style="background: rgba(255,255,255,0.03); padding: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
-                                <i class="fas fa-${icon}" style="color: var(--primary); width: 20px;"></i>
-                                <div style="flex: 1;">
-                                    <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">${act.time}</div>
-                                    <div style="font-size: 0.95rem;">${act.name}</div>
-                                </div>
-                                <div style="font-size: 0.85rem; color: var(--secondary);">€${act.cost}</div>
+                    if (typeof day.activities === 'string') {
+                        activityHtml = `
+                            <div style="background: rgba(255,255,255,0.03); padding: 1rem; border-radius: 8px; margin-bottom: 0.8rem; border-left: 3px solid var(--primary);">
+                                <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase; margin-bottom: 0.4rem;">DAILY AGENDA</div>
+                                <div style="font-size: 0.95rem; line-height: 1.5;">${day.activities}</div>
                             </div>`;
-                    });
+                    } else {
+                        (day.activities || []).forEach((act) => {
+                            const icon = act.time === 'Morning' ? 'sun' : (act.time === 'Afternoon' ? 'cloud-sun' : 'moon');
+                            activityHtml += `
+                                <div style="background: rgba(255,255,255,0.03); padding: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.8rem;">
+                                    <i class="fas fa-${icon}" style="color: var(--primary); width: 20px;"></i>
+                                    <div style="flex: 1;">
+                                        <div style="font-size: 0.7rem; opacity: 0.6; text-transform: uppercase;">${act.time}</div>
+                                        <div style="font-size: 0.95rem;">${act.name}</div>
+                                    </div>
+                                    <div style="font-size: 0.85rem; color: var(--secondary);">€${act.cost}</div>
+                                </div>`;
+                        });
+                    }
 
                     let mealHtml = '';
                     if (day.meals) {
+                        const lunchText = typeof day.meals.lunch === 'string' ? day.meals.lunch : (day.meals.lunch.restaurant || "");
+                        const dinnerText = typeof day.meals.dinner === 'string' ? day.meals.dinner : (day.meals.dinner.restaurant || "");
+                        const lunchSub = day.meals.lunch.must_try_dish ? `Try: ${day.meals.lunch.must_try_dish}` : "Local cuisine";
+                        const dinnerSub = day.meals.dinner.must_try_dish ? `Try: ${day.meals.dinner.must_try_dish}` : "Chef's selection";
+
                         mealHtml = `
                             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; margin: 1rem 0;">
                                 <div style="background: rgba(34, 197, 94, 0.08); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(34, 197, 94, 0.2);">
                                     <div style="font-size: 0.7rem; color: #22c55e;"><i class="fas fa-utensils"></i> LUNCH</div>
-                                    <div style="font-size: 0.85rem; font-weight: 500;">${day.meals.lunch.restaurant}</div>
-                                    <div style="font-size: 0.75rem; opacity: 0.7;">Try: ${day.meals.lunch.must_try_dish}</div>
+                                    <div style="font-size: 0.85rem; font-weight: 500;">${lunchText}</div>
+                                    <div style="font-size: 0.75rem; opacity: 0.7;">${lunchSub}</div>
                                 </div>
                                 <div style="background: rgba(34, 197, 94, 0.08); padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(34, 197, 94, 0.2);">
                                     <div style="font-size: 0.7rem; color: #22c55e;"><i class="fas fa-moon"></i> DINNER</div>
-                                    <div style="font-size: 0.85rem; font-weight: 500;">${day.meals.dinner.restaurant}</div>
-                                    <div style="font-size: 0.75rem; opacity: 0.7;">Try: ${day.meals.dinner.must_try_dish}</div>
+                                    <div style="font-size: 0.85rem; font-weight: 500;">${dinnerText}</div>
+                                    <div style="font-size: 0.75rem; opacity: 0.7;">${dinnerSub}</div>
                                 </div>
                             </div>`;
                     }

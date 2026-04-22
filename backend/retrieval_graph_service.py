@@ -352,41 +352,21 @@ CONVERSATION HISTORY:
 7. OUTPUT: Return ONLY a valid JSON object. No conversational text.
 8. SPEED OPTIMIZATION: Keep descriptions under 15 words.
 
-### ITINERARY JSON SCHEMA:
-- **restrictions**: STRING (max 10 words). Example: "Couple's vibe, no kids."
-- **meals**: All restaurants and dishes must be {food_pref}. If {food_pref} is 'local cuisine', provide a mix of options.
-- **hotel**: Belong in the 'hotel' field only. NEVER in activities.
-{{
-  "image_keyword": "travel photo {destination_str}",
+### REQUIRED JSON STRUCTURE:
+{
   "itinerary": [
-    {{
+    {
       "day": 1,
-      "city": "Specific city from list",
-      "country": "Specific country",
-      "is_travel_day": false,
-      "restrictions": "Plain text string here (e.g. Baby-friendly etc.)",
-      "activities": [
-        {{"time": "Morning", "name": "REAL Attraction Name from docs", "cost": 15}},
-        {{"time": "Afternoon", "name": "REAL Attraction Name from docs", "cost": 20}},
-        {{"time": "Evening", "name": "REAL Venue Name from docs", "cost": 25}}
-      ],
-      "meals": {{
-        "lunch": {{"restaurant": "REAL Restaurant Name from docs", "must_try_dish": "REAL dish name from docs"}},
-        "dinner": {{"restaurant": "REAL Restaurant Name from docs", "must_try_dish": "REAL dish name from docs"}}
-      }},
-      "hotel": {{"name": "REAL Hotel Name from docs", "reason": "Specific reason why this hotel fits this user"}}
-    }},
-    // ... Repeat for all days up to {duration}
+      "city": "Paris",
+      "activities": "Morning: Eiffel Tower. Afternoon: Louvre. Evening: Seine Cruise.",
+      "restrictions": "Romantic vibe.",
+      "meals": {"lunch": "Le Bistro", "dinner": "Brasserie"},
+      "hotel": {"name": "Hotel de Paris", "reason": "Central and historic"}
+    }
   ],
-  "budget_breakdown": {{
-    "total": {budget_val},
-    "attractions": 80,
-    "stays": 400,
-    "transport": 120,
-    "food": 300
-  }},
-  "justification": "A warm, personal summary (3 sentences) of why this specific {duration}-day plan represents the best of {destination_str} for a {user_type}."
-}}
+  "budget_breakdown": {"total": 5000, "attractions": 500, "stays": 2500, "transport": 1000, "food": 1000},
+  "justification": "Exactly 3 sentences explaining why this specific route fits the traveler type and budget."
+}
 """
         plan_raw, error = self._call_llm(prompt)
         
