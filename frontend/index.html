@@ -322,7 +322,7 @@
             const thinkingDiv = addThinkingMessage();
 
             try {
-                const response = await fetch('http://127.0.0.1:8000/plan', {
+                const response = await fetch('/plan', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ query, session_id: sessionId })

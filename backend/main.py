@@ -1,6 +1,8 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from backend.vector_store import VectorStore
 from backend.retrieval_graph_service import TripPlanGraph
 from backend.evaluation import Evaluator
@@ -19,7 +21,10 @@ app.add_middleware(
 )
 
 # Initialize components
-DATASET_PATH = os.getenv("DATASET_PATH")
+# Use absolute path resolving for the dataset to handle different execution contexts
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+DATASET_PATH = os.path.join(BASE_DIR, "data", "dataset.json")
+
 vs = VectorStore(DATASET_PATH)
 planner = TripPlanGraph(vs)
 evaluator = Evaluator(vs)
@@ -33,9 +38,16 @@ class QueryRequest(BaseModel):
     session_id: str = "default"
 
 
+# Serve static files from the frontend directory
+try:
+    app.mount("/frontend", StaticFiles(directory="frontend"), name="frontend")
+except:
+    # Handle local vs docker pathing differences
+    app.mount("/frontend", StaticFiles(directory="./frontend"), name="frontend")
+
 @app.get("/")
 def read_root():
-    return {"status": "online", "message": "LangGraph Travel Planner API"}
+    return FileResponse("frontend/index.html")
 
 
 @app.post("/plan")
