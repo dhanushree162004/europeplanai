@@ -1,3 +1,14 @@
+---
+title: EuroPlan AI
+emoji: 🌍
+colorFrom: indigo
+colorTo: blue
+sdk: docker
+app_port: 7860
+pinned: false
+license: mit
+---
+
 # 🌍 EuroPlan AI: Multi-Agent Travel Planner
 
 **EuroPlan AI** is a professional-grade, multi-agent travel reasoning system designed to eliminate AI "hallucinations" and provide geographically accurate, personalized European itineraries.
