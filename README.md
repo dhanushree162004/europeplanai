@@ -1,16 +1,11 @@
 # EuroPlan AI: Multi-Agent Travel Planner
 
-### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
-### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
-
-**EuroPlan AI** is a multi-agent travel reasoning system designed to eliminate AI "hallucinations" and provide geographically accurate, personalized European itineraries.
-
----
+**EuroPlan AI** is a multi-agent travel reasoning system that involves an AI-based travel planning model for generating structured, geographically consistent, and grounded travel itineraries. The model combines Retrieval-Augmented Generation (RAG) techniques with stateful orchestration to produce structured and contextually grounded itineraries. 
 
 ## What We Built (The Implementation)
 
 ### 1. **Strict Geographic Grounding**
-Forget AI hallucinations. EuroPlan uses a custom **ChromaDB Vector Store** to cross-reference every suggestion against real-world documents. If a city isn't in the verified database, the AI will admit it rather than making up a fake plan.
+EuroPlan uses a custom **ChromaDB Vector Store** to cross-reference every suggestion against real-world documents. If a city isn't in the verified database, the AI will admit it rather than making up a fake plan.
 
 ### 2. **Intelligent "Vibe" Engine**
 The system dynamically adapts its reasoning based on the traveler type:
@@ -93,5 +88,8 @@ LLM_MODEL=llama3.2:1b
    Simply open `frontend/index.html` in any modern web browser or use a Live Server.
 
 ---
+
+### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
+### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
 
 **Happy Traveling with EuroPlan AI!** ✈️
