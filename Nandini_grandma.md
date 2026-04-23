@@ -1,16 +1,40 @@
-1. The Idea  
-If we are planning a trip, it means lots of work, such as booking hotels and knowing where to visit, and it all depends on our budget. For example, we can pre-decide and type things such as 5 days in Paris, a group of friends, €2000 budget, and it gives us a complete plan, such as which day to visit what place, what we can eat and what our would be our expense. 
- 
-2. The AI Part  
-When AI is left alone, it behaves like a dumb device, which means it gives any nonsense response that makes no sense and has no authenticity. It might suggest a hotel that doesn't exist. So we will give it a good database like a guidebook to refer to ,and respond so that it doesn't make a mistake. This method is known as RAG; it checks first and then answers. We can trust AI blindly. It's like a fence around it. 
+# EuroPlan AI — Project Overview 
 
-3. How It Is Built  
-Think of it like a small team, each doing one job: 
+## 1. The Idea
 
-##LangGraph  : the manager, connects all steps in order 
-##ChromaDB : the memory, stores real travel facts so AI doesn't guess 
-##FastAPI : the engine, runs everything behind the scenes 
-##MiniLM embeddings : the translator, helps the AI understand what your words actually mean 
-##HTML/CSS/JS : the shop front, the website you actually type into 
+Planning a trip involves a lot of work - booking hotels, finding places to visit,
+and staying within a budget. This project removes that effort.
 
-The system also has two modes: free chat and a structured form where you pick up a budget and days. Both give you the same result: a real plan, not a guess. 
+You type something like: "5 days in Paris, group of friends, €2000 budget"
+and it builds a complete plan for you - which place to visit each day,
+what to eat, and what your expenses will look like.
+
+---
+
+## 2. The AI Part
+
+When AI is left alone, it can produce responses that sound confident but are
+completely made up. It might suggest a hotel that does not exist.
+
+To fix this, the AI is given a real knowledge base to refer to before it answers —
+like a guidebook before an exam. It can only respond using facts from that source.
+This method is called RAG (Retrieval-Augmented Generation): check first, then answer.
+The AI is not trusted blindly. There is a fence around it.
+
+---
+
+## 3. How It Is Built
+
+The system works like a small team, where each part does one specific job:
+
+| Component         | Role                                                   |
+|-------------------|--------------------------------------------------------|
+| LangGraph         | The manager - connects all steps in order              |
+| ChromaDB          | The memory - stores real travel facts so AI does not guess |
+| FastAPI           | The engine - runs everything behind the scenes         |
+| MiniLM Embeddings | The translator - helps AI understand what your words mean |
+| HTML / CSS / JS   | The front end - the website you actually type into     |
+
+The system has two modes: a free chat where you type naturally, and a structured
+form where you select budget, number of days, and trip type. Both produce the
+same output - a real day-by-day plan, not a guess.
