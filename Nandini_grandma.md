@@ -7,10 +7,10 @@ When AI is left alone, it behaves like a dumb device, which means it gives any n
 3. How It Is Built  
 Think of it like a small team, each doing one job: 
 
-LangGraph  : the manager, connects all steps in order 
-ChromaDB : the memory, stores real travel facts so AI doesn't guess 
-FastAPI : the engine, runs everything behind the scenes 
-MiniLM embeddings : the translator, helps the AI understand what your words actually mean 
-HTML/CSS/JS : the shop front, the website you actually type into 
+##LangGraph  : the manager, connects all steps in order 
+##ChromaDB : the memory, stores real travel facts so AI doesn't guess 
+##FastAPI : the engine, runs everything behind the scenes 
+##MiniLM embeddings : the translator, helps the AI understand what your words actually mean 
+##HTML/CSS/JS : the shop front, the website you actually type into 
 
 The system also has two modes: free chat and a structured form where you pick up a budget and days. Both give you the same result: a real plan, not a guess. 
