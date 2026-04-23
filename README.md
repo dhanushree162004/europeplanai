@@ -1,20 +1,94 @@
 # EuroPlan AI: Multi-Agent Travel Planner
 
-**EuroPlan AI** is a multi-agent travel reasoning system that involves an AI-based travel planning model for generating structured, geographically consistent, and grounded travel itineraries. The model combines Retrieval-Augmented Generation (RAG) techniques with stateful orchestration to produce structured and contextually grounded itineraries. 
+EuroPlan AI is a multi-agent travel reasoning system that involves an AI-based travel planning model for generating structured, geographically consistent, and grounded travel itineraries. The model combines Retrieval-Augmented Generation (RAG) techniques with stateful orchestration to produce structured and contextually grounded itineraries. 
 
-## Implementation
+This repository contains **two distinct versions** of the system, each showcasing different capabilities and deployment strategies.
 
-### 1. **Strict Geographic Grounding**
-EuroPlan uses a custom **ChromaDB Vector Store** to cross-reference every suggestion against real-world documents. If a city isn't in the verified database, the AI will admit it rather than making up a fake plan.
+---
 
-### 2. **Intelligent "Vibe" Engine**
-The system dynamically adapts its reasoning based on the traveler type:
-- **Couples**: Romantic spots and scenic viewpoints.
-- **Groups**: Adventurous activities and social hotspots.
-- **Families**: Kid-friendly zones and educational museums.
-- **Negation Awareness**: If you say "no kids," the system strictly avoids child-friendly tags and amenities.
+## Version 1: Full Multi-Agent System (Flexible Input)
 
-### 3. **Stateful Conversation (LangGraph)**
+### Overview
+This version focuses on **accuracy and flexibility**, allowing users to input travel queries in natural language.
+
+### Features
+- Hallucination-Free Planning (strict RAG grounding)
+- Flexible user input (natural prompts)
+- Multi-agent reasoning with:
+  - Guardrail Agent  
+  - Memory Agent  
+  - Retrieval Agent  
+  - Planner Agent  
+  - Vibe Engine  
+- Personalized itineraries  
+- Day-by-day travel plans  
+
+### Tech Stack
+- **Backend:** FastAPI (Python 3.13)  
+- **Orchestration:** LangGraph  
+- **Vector DB:** ChromaDB  
+- **Embeddings:** all-MiniLM-L6-v2  
+- **Frontend:** HTML, CSS, JavaScript  
+
+### Deployment (Version 1)
+- Frontend: Vercel  
+- Backend: Hugging Face Spaces  
+
+### Live Demo (Version 1)
+- App: https://europe-trip-ashen.vercel.app/
+- Demo: https://drive.google.com/file/d/1vdo0tYsaJwRDGS33LfnKmHOAb89Gb4ib/view?usp=sharing
+
+### Limitations
+- Requires relatively structured prompts for best results  
+- No real-time data (static vector database)  
+- Europe-only domain restriction  
+- Possible latency due to free-tier inference APIs  
+
+---
+
+## Version 2: Controlled Input System (UI-Driven)
+
+### Overview
+This version focuses on **structured interaction and UI-driven inputs**, ensuring consistency by restricting user choices.
+
+### Features
+- Predefined inputs for:
+  - Days  
+  - Budget  
+  - Destinations  
+  - Group Type (Solo, Couple, Friends, Family)  
+- Strong geographic grounding via ChromaDB  
+- Stateful conversation using LangGraph  
+- Enhanced “Vibe Engine” with negation awareness  
+
+### UI Highlights
+- Interactive Glassmorphism interface  
+- Real-time itinerary sidebar  
+- Agent reasoning view  
+- Dynamic context tracking  
+
+### Tech Stack
+- **Backend:** FastAPI (Python 3.13)  
+- **Orchestration:** LangGraph  
+- **Vector DB:** ChromaDB  
+- **Embeddings:** all-MiniLM-L6-v2  
+- **Frontend:** HTML, CSS, JavaScript (Glassmorphism UI)  
+
+### Deployment (Version 2)
+- Fully deployed on Hugging Face Spaces  
+
+### Live Demo (Version 2)
+- App: https://huggingface.co/spaces/dhanushree16/europe-planner
+- Demo: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=sharing
+
+### Limitations
+- Limited predefined options only  
+- No support for custom/free-form inputs  
+- Fixed ranges for budget, duration, and destinations  
+
+---
+
+### **Stateful Conversation (LangGraph)**
 EuroPlan uses a **LangGraph orchestrated pipeline** that manages conversation flow:
 
 ```mermaid
@@ -36,23 +110,6 @@ graph TD
 - **Planner Agent**: Generates a high-precision day-by-day JSON itinerary.
 - **Chat Agent**: Summarizes the plan in a warm, ChatGPT-like conversational tone.
 
-### 4. **Premium "Glassmorphism" UI**
-A high-end, dark-themed interface featuring:
-- **Interactive Sidebar**: Real-time rendering of your day-by-day itinerary and budget.
-- **Agent Justification**: A window into the AI's "internal thoughts" and reasoning steps.
-- **Dynamic Context Bar**: Always showing you what the AI currently "knows" about your trip.
-
----
-
-## Tech Stack
-
-- **Backend**: Python 3.13 (Anaconda/Stable), FastAPI, Uvicorn.
-- **AI Orchestration**: LangGraph (Stateful Agent Workflows).
-- **Vector Database**: ChromaDB (AI-powered document retrieval).
-- **Embeddings**: `all-MiniLM-L6-v2` (Sentence Transformers).
-- **Frontend**: Vanilla HTML5, CSS3 (Modern Glassmorphism), JavaScript (Asynchronous State Mgmt).
-
----
 
 ## Installation & Setup
 
@@ -75,7 +132,6 @@ DATASET_PATH=data/dataset.json
 LOCAL_LLM_BASE_URL=http://localhost:11434/v1
 LLM_MODEL=llama3.2:1b
 
-
 ---
 
 ## How to Run
@@ -86,24 +142,6 @@ LLM_MODEL=llama3.2:1b
    ```
 2. **Launch the Frontend**:
    Simply open `frontend/index.html` in any modern web browser or use a Live Server.
-
----
-## Limitation
-EuroPlan AI currently supports a limited set of predefined inputs to ensure consistent and structured travel planning.
-
-**Available Options**
-Days – Fixed range of trip duration
-Budget – Predefined budget options (e.g., 500, 1000, 2000, etc.)
-Destinations – Limited number of places per trip
-Group Type – Solo, Couple, Friends, Family
-
-**Note**
-Custom or highly flexible inputs are currently not supported
-Users must select from the available options provided in the interface
-
----
-### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
-### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
 
 ---
 
