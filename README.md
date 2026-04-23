@@ -68,7 +68,7 @@ conda activate europlan
 pip install -r requirements.txt
 ```
 
-### 2. Provider API Key
+### 2. Local LLM
 Create a `.env` file in the root directory:
 HF_TOKEN=
 DATASET_PATH=data/dataset.json
@@ -88,6 +88,18 @@ LLM_MODEL=llama3.2:1b
    Simply open `frontend/index.html` in any modern web browser or use a Live Server.
 
 ---
+## Limitation
+EuroPlan AI currently supports a limited set of predefined inputs to ensure consistent and structured travel planning.
+
+**Available Options**
+Days – Fixed range of trip duration
+Budget – Predefined budget options (e.g., 500, 1000, 2000, etc.)
+Destinations – Limited number of places per trip
+Group Type – Solo, Couple, Friends, Family
+
+**Note**
+Custom or highly flexible inputs are currently not supported
+Users must select from the available options provided in the interface
 
 ### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
 ### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
