@@ -148,4 +148,9 @@ LLM_MODEL=llama3.2:1b
 
 ---
 
-**Happy Traveling with EuroPlan AI!** ✈️
+**Happy Traveling with EuroPlan AI!** 
+
+
+Akshaya Ravikumar - M01096168
+Dhanushree Thiruveragan - M01088506
+Nandini Devadiga - M01089355
