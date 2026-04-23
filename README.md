@@ -33,6 +33,7 @@ This version focuses on **accuracy and flexibility**, allowing users to input tr
 ### Deployment (Version 1)
 - Frontend: Vercel  
 - Backend: Hugging Face Spaces  
+<img width="1280" height="678" alt="WhatsApp Image 2026-04-23 at 21 33 04" src="https://github.com/user-attachments/assets/5cbffe99-ab6e-4d81-a4b6-9cffc9e5f201" />
 
 ### Live Demo (Version 1)
 - App: https://europe-trip-ashen.vercel.app/
@@ -75,7 +76,9 @@ This version focuses on **structured interaction and UI-driven inputs**, ensurin
 - **Frontend:** HTML, CSS, JavaScript (Glassmorphism UI)  
 
 ### Deployment (Version 2)
-- Fully deployed on Hugging Face Spaces  
+- Fully deployed on Hugging Face Spaces
+
+<img width="1600" height="949" alt="WhatsApp Image 2026-04-23 at 21 36 29" src="https://github.com/user-attachments/assets/2d871d44-d036-4617-b0be-9bbc49d80f34" />
 
 ### Live Demo (Version 2)
 - App: https://huggingface.co/spaces/dhanushree16/europe-planner
