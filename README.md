@@ -101,7 +101,10 @@ Group Type – Solo, Couple, Friends, Family
 Custom or highly flexible inputs are currently not supported
 Users must select from the available options provided in the interface
 
+---
 ### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
 ### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
+
+---
 
 **Happy Traveling with EuroPlan AI!** ✈️
