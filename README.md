@@ -2,7 +2,7 @@
 
 **EuroPlan AI** is a multi-agent travel reasoning system that involves an AI-based travel planning model for generating structured, geographically consistent, and grounded travel itineraries. The model combines Retrieval-Augmented Generation (RAG) techniques with stateful orchestration to produce structured and contextually grounded itineraries. 
 
-## What We Built (The Implementation)
+## Implementation
 
 ### 1. **Strict Geographic Grounding**
 EuroPlan uses a custom **ChromaDB Vector Store** to cross-reference every suggestion against real-world documents. If a city isn't in the verified database, the AI will admit it rather than making up a fake plan.
