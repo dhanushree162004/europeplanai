@@ -15,7 +15,7 @@ The system dynamically adapts its reasoning based on the traveler type:
 - **Negation Awareness**: If you say "no kids," the system strictly avoids child-friendly tags and amenities.
 
 ### 3. **Stateful Conversation (LangGraph)**
-Unlike a simple chatbot, EuroPlan uses a **LangGraph orchestrated pipeline** that manages conversation flow:
+EuroPlan uses a **LangGraph orchestrated pipeline** that manages conversation flow:
 
 ```mermaid
 graph TD
