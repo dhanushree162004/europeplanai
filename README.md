@@ -1,53 +1,9 @@
----
-title: EuroPlan AI
-emoji: 🌍
-colorFrom: indigo
-colorTo: blue
-sdk: docker
-app_port: 7860
-pinned: false
-license: mit
----
+# EuroPlan AI: Multi-Agent Travel Planner
 
-# 🌍 EuroPlan AI: Multi-Agent Travel Planner
+### Deployment: (https://huggingface.co/spaces/dhanushree16/europe-planner)
+### Demo Link: https://drive.google.com/file/d/1LA-p3Mpq4zEIH3jGpBvbiGM9ewNqFPrS/view?usp=drive_link
 
-### 🚀 [Live Demo on Hugging Face Spaces](https://huggingface.co/spaces/dhanushree16/europe-planner)
-
-**EuroPlan AI** is a professional-grade, multi-agent travel reasoning system designed to eliminate AI "hallucinations" and provide geographically accurate, personalized European itineraries.
-
----
-
-## 🎓 Pedagogical Framework & Grading Criteria
-
-This project is built strictly according to the **CST4625 Generative AI Hackathon Preparation Guide**. Below is how EuroPlan AI aligns with the professor's expectations for a "Strong Submission":
-
-### 1.4 What Stronger Hackathon Submissions Include
-
-- **A. A clear problem**: *“A good project solves something understandable.”*
-  - **EuroPlan**: Solves the high-friction, hallucination-prone nature of general-purpose LLM travel planning by enforcing a verified data-core.
-- **B. Scope discipline**: *“A smaller working prototype is better than a grand unfinished system.”*
-  - **EuroPlan**: We focused on high-fidelity, error-free planning for 8 key European territories rather than a buggy global scope.
-- **C. Sensible use of AI**: *“The AI part should actually do something useful.”*
-  - **EuroPlan**: Uses AI for RAG-based context retrieval, multi-agent task sequencing, and intent-aware personalization (Vibe Engine).
-- **D. Better integration of course ideas**: *“Combine several things from the module.”*
-  - **EuroPlan**: Combines **Prompt Engineering (Constraints)**, **RAG (Grounding)**, **Guardrails (Safety)**, and **Stateful Agent Workflows (LangGraph)**.
-- **E. A usable artifact**: *“The project should be testable.”*
-  - **EuroPlan**: Features a complete Full-Stack implementation (Python/FastAPI/HTML) that is ready to test immediately.
-
----
-
-### 1.5 Avoiding Common Failure Patterns
-
-EuroPlan AI was designed to avoid "Weaker Submission" pitfalls:
-- ✅ **Useful AI**: The grounding and intent detection are core to the logic, not decorative.
-- ✅ **Testability**: The system is fully operational with a verified path from chat to itinerary.
-- ✅ **Reliability**: We prioritized **Stable Behavior** (Fixed Pydantic conflicts, JSON recovery) over decorative styling.
-
----
-
-### 1.6 Deployment & The "Last Mile"
-
-- **Engineering Polish**: We proved the "last mile" of engineering by solving environment version conflicts (Python 3.13) and ensuring the data flow from ChromaDB to the Glassmorphism UI is seamless and high-performance.
+**EuroPlan AI** is a multi-agent travel reasoning system designed to eliminate AI "hallucinations" and provide geographically accurate, personalized European itineraries.
 
 ---
 
@@ -119,11 +75,11 @@ pip install -r requirements.txt
 
 ### 2. Provider API Key
 Create a `.env` file in the root directory:
-```env
-OPENAI_API_KEY=your_key_here
-# OR
-GEMINI_API_KEY=your_key_here
-```
+HF_TOKEN=
+DATASET_PATH=data/dataset.json
+LOCAL_LLM_BASE_URL=http://localhost:11434/v1
+LLM_MODEL=llama3.2:1b
+
 
 ---
 
@@ -138,16 +94,4 @@ GEMINI_API_KEY=your_key_here
 
 ---
 
-## 📝 Summary of Work Completed Today
-
-Today, we transformed EuroPlan from a prototype into a production-hardened system:
-- ✅ **Stabilized Core Logic**: Fixed critical Python version 3.14/3.13 Pydantic conflicts.
-- ✅ **Implemented Vibe Engine**: Added intelligent personality mapping (Romantic vs. Adventurous).
-- ✅ **Hardened RAG**: Injected London/UK data and fixed multi-country "leakage" bugs.
-- ✅ **Fixed Interface Glitches**: Resolved sidebar scrolling, "instruction leaks" in chat, and foreign language hallucinations.
-- ✅ **Improved Tone**: Rewrote agent prompts to achieve a warm, professional ChatGPT-like personality.
-- ✅ **Crash Recovery**: Built a robust JSON retry mechanism for when LLMs return conversational text instead of structured data.
-
----
-
-**Happy Traveling with EuroPlan AI!** ✈️🥨🏰
+**Happy Traveling with EuroPlan AI!** ✈️
