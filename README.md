@@ -7,7 +7,7 @@
 
 ---
 
-## 🏗 What We Built (The Implementation)
+## What We Built (The Implementation)
 
 ### 1. **Strict Geographic Grounding**
 Forget AI hallucinations. EuroPlan uses a custom **ChromaDB Vector Store** to cross-reference every suggestion against real-world documents. If a city isn't in the verified database, the AI will admit it rather than making up a fake plan.
