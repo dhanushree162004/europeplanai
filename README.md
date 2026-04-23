@@ -49,7 +49,7 @@ A high-end, dark-themed interface featuring:
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - **Backend**: Python 3.13 (Anaconda/Stable), FastAPI, Uvicorn.
 - **AI Orchestration**: LangGraph (Stateful Agent Workflows).
@@ -59,7 +59,7 @@ A high-end, dark-themed interface featuring:
 
 ---
 
-## ⚙️ Installation & Setup
+## Installation & Setup
 
 ### 1. Environment Setup
 **CRITICAL**: This project is optimized for **Python 3.13**. (Python 3.14 has known compatibility issues with `pydantic v1` used by some dependencies).
@@ -83,7 +83,7 @@ LLM_MODEL=llama3.2:1b
 
 ---
 
-## 🏃‍♂️ How to Run
+## How to Run
 
 1. **Start the Backend Server**:
    ```bash
