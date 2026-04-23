@@ -1,6 +1,9 @@
+#The Idea 
 The main idea behind the project is to create a trip planner specifically in Europe in a chatting environment (more like a website) where you can tell it to plan a trip for you in a specific country and it will generate a proper schedule for each day that you plan to stay in that country. Instead of guessing randomly, it will suggest real-life locations to visit around the country, restaurants to eat, and places to stay based on the budget you give it. This trip planner generated using Artificial Intelligence will remember your preferences and guide you properly, whether you want to travel with friends, solo or family throughout your visit without providing any false information.  
 
+#The Concept
 This website was built using Generative AI which is a part of Artificial Intelligence that will create new content so when you ask questions on the website, it will properly answer based on what it already knows in simple human language. There are many elements and features in Generative AI that will support in bringing together the travel information needed that is actually correct. This idea is called RAG (Retrieval Augmented Generation) which will help in checking correct information and organizing it so it would be easy to understand. This was all made possible by writing code in Python programming language.  
 
+#The Tools 
 The website was created by bringing together different sections of AI that made the work behind it very easy. The main sections of the website - Frontend (the face of the website) and the Backend (Backbone and Brains behind the working of the website).  
 FastAPI is the tool runs the backend, LangGraph will connect all the AI dots together, ChromaDB stores all the travel knowledge, MiniLM is a technique that helps AI understand the meaning behind each word and HTML, CSS, JavaScript are means in which the website that was built can be interacted with 
